@@ -8,7 +8,7 @@ for i in range(N - 2):
             total = card[i] + card[j] + card[k]
             if max_ < total <= M:
                 max_ = total
-                if max == M:
+                if max_ == M:
                     break
 
 print(max_)
