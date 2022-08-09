@@ -1,27 +1,24 @@
-R, C = map(int, input().split())
-parking = []
+# # R, C = 행, 열 개수
+# R, C = map(int, input().split())
+# parking = []
 
-for i in range(R):
-    parking.append(list(input()))
+# for i in range(R):
+#     parking.append(list(input()))
 
-# R, C = 4, 4
-# parking = [
-#     ['#','.','.','#'],
-#     ['.','.','X','.'],
-#     ['.','.','X','.'],
-#     ['#','X','X','#']
-# ]
+R, C = 4, 4
+parking = [
+    ['#','.','.','#'],
+    ['.','.','X','.'],
+    ['.','.','X','.'],
+    ['#','X','X','#']
+]
 
-cnt_0 = 0
-cnt_1 = 0
-cnt_2 = 0
-cnt_3 = 0
-cnt_4 = 0
+# 차 0~4대를 부수고 주차할 수 있는 공간의 개수 count변수
+cnt = [0, 0, 0, 0, 0]
 
-for i in range(R):
-    for j in range(C):
-        if i + 1 == R or j + 1 == C:
-            break
+for i in range(R - 1):
+    for j in range(C - 1):
+        # 2 X 2 공간 순회
         a = parking[i][j]
         b = parking[i][j + 1]
         c = parking[i + 1][j]
@@ -33,18 +30,15 @@ for i in range(R):
         else:
             car = space.count("X")
             if car == 0:
-                cnt_0 += 1
+                cnt[0] += 1
             if car == 1:
-                cnt_1 += 1
+                cnt[1] += 1
             if car == 2:
-                cnt_2 += 1
+                cnt[2] += 1
             if car == 3:
-                cnt_3 += 1
+                cnt[3] += 1
             if car == 4:
-                cnt_4 += 1
+                cnt[4] += 1
 
-print(cnt_0)
-print(cnt_1)
-print(cnt_2)
-print(cnt_3)
-print(cnt_4)
+for i in cnt:
+    print(i)
