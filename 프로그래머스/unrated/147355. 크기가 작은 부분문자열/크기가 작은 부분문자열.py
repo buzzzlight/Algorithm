@@ -7,8 +7,6 @@ def solution(t, p):
 
     for t in t_list:
         if int(t) <= int(p):
-            print(int(t))
-            print(int(p))
             answer += 1
 
     return answer
